@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TrackManager 개인정보 처리방침 — 기기 내 데이터 처리, 권한, 사진 사본 및 삭제 방법 안내">
+  <meta name="color-scheme" content="light dark">
+  <title>TrackManager 개인정보 처리방침</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #ffffff; --fg: #172b3a; --muted: #465b6a; --line: #c9d4dc; --panel: #f2f6fa; --link: #164d80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif; font-size: 1rem; line-height: 1.8; word-break: keep-all; overflow-wrap: anywhere; }
+    main { max-width: 900px; margin: auto; padding: 28px 20px 64px; }
+    h1 { color: var(--fg); font-size: clamp(1.7rem, 5vw, 2.4rem); line-height: 1.4; }
+    h2 { margin-top: 2.2rem; font-size: 1.35rem; line-height: 1.5; }
+    p, ul { margin: 1rem 0; }
+    ul { padding-left: 1.4rem; }
+    li + li { margin-top: .5rem; }
+    a { color: var(--link); text-underline-offset: .2em; }
+    a:focus-visible { outline: 3px solid #b57800; outline-offset: 3px; }
+    code { font-size: .95em; overflow-wrap: anywhere; }
+    .effective { color: var(--muted); }
+    .table-scroll { overflow-x: auto; margin: 1rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+    th, td { border: 1px solid var(--line); padding: 12px; text-align: left; vertical-align: top; min-width: 130px; }
+    th { background: var(--panel); }
+    .table-scroll:focus-visible { outline: 3px solid #b57800; outline-offset: 3px; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #101923; --fg: #eef4fa; --muted: #bccbd8; --line: #536777; --panel: #1d2d3d; --link: #a4d4ff; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>TrackManager 개인정보 처리방침</h1>
+    <p class="effective"><strong>시행일: <time datetime="2026-11-21">2026년 11월 21일</time></strong></p>
+    <p>TrackManager(패키지명 <code>kr.co.trackmaster.field.v4</code>)는 경인선 부개~인천 구간의 선로 유지보수 결함을 기록하는 오프라인 앱입니다. 이 방침은 버전 1.0.0 (1)에 적용됩니다.</p>
+  </header>
+  <section aria-labelledby="controller">
+    <h2 id="controller">1. 개인정보 처리 주체와 연락처</h2>
+    <ul>
+      <li>처리 주체: TrackManager 개발자</li>
+      <li>개인정보 보호 및 이용 문의: <strong><a href="mailto:bizstoa1234@gmail.com">bizstoa1234@gmail.com</a></strong></li>
+    </ul>
+    <p>앱은 회원가입, 개발자 서버, 분석 도구 및 광고 SDK를 사용하지 않습니다. 개발자는 앱에 저장된 현장 기록에 원격으로 접근할 수 없습니다.</p>
+  </section>
+  <section aria-labelledby="data">
+    <h2 id="data">2. 기기에서 처리하는 항목과 목적</h2>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="처리 항목 표, 가로로 스크롤 가능">
+      <table>
+        <thead><tr><th scope="col">항목</th><th scope="col">처리 목적 및 범위</th><th scope="col">저장 위치</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">위치정보</th><td>앱 사용 중 허용한 정확한 위치 또는 대략적인 위치를 이용하여 선로 km 위치 입력을 보조합니다. 사용자가 저장한 결함의 위치 필드·정확도·측정시각은 해당 기록에 포함될 수 있습니다. 백그라운드 위치 추적은 하지 않습니다.</td><td>기기 내 처리, 사용자가 저장한 값만 결함 기록에 보관</td></tr>
+          <tr><th scope="row">사진</th><td>시스템 카메라 앱으로 촬영하거나 사진 선택기로 고른 사진을 결함당 최대 3장 첨부하고, 캡션 워터마크를 사진에 합성하여 저장합니다.</td><td>앱 전용 사진 공간 및 아래의 갤러리 사본</td></tr>
+          <tr><th scope="row">결함 기록</th><td>구간·선별·km 위치, 결함 내용, 위험등급 A–E와 점수, 작업상태, 비고, 변경 이력 등 사용자가 입력·저장한 현장 기록을 관리합니다.</td><td>기기의 SQLite 데이터베이스</td></tr>
+          <tr><th scope="row">설정</th><td>주간·야간 모드 등 사용자가 선택한 앱 설정을 유지합니다.</td><td>기기의 앱 전용 저장 공간</td></tr>
+          <tr><th scope="row">가져오기·내보내기 파일</th><td>사용자가 선택한 CSV를 읽어 기록을 반영하고, 요청한 xlsx 또는 DB 백업 ZIP을 생성합니다.</td><td>기기 내 처리 및 사용자가 선택한 저장·공유 위치</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>이 항목들은 개발자 서버로 전송되지 않습니다. 불필요한 개인정보, 얼굴, 연락처 또는 민감한 현장 정보가 사진·비고·가져오기 파일에 포함되지 않도록 주의해 주세요.</p>
+  </section>
+  <section aria-labelledby="gallery">
+    <h2 id="gallery">3. 갤러리에 저장되는 사진 사본</h2>
+    <p>저장한 사진은 앱 전용 공간 외에 휴대전화의 <strong><code>Pictures/TrackMaster/</code></strong> 폴더에도 한 부 복사됩니다. 이 폴더의 사진은 다른 갤러리 앱 등에서 보일 수 있으며 <strong>TrackManager를 삭제해도 남습니다.</strong> 앱에서 결함이나 사진을 삭제한 경우에도 갤러리 사본은 별도로 확인하여 삭제해 주세요. 합성된 캡션 워터마크는 사진의 일부이므로 사본을 공유할 때 함께 전달됩니다.</p>
+  </section>
+  <section aria-labelledby="sharing">
+    <h2 id="sharing">4. 외부 전달, 제3자 제공 및 처리 위탁</h2>
+    <p>앱은 현장 기록을 자동 업로드하거나 동기화하지 않습니다. 데이터가 외부로 전달되는 것은 사용자가 직접 내보내기·공유를 실행하고 대상 앱 또는 저장 위치를 선택한 경우입니다. 공유 전 사진의 캡션과 파일에 포함된 기록을 확인해 주세요.</p>
+    <p>개발자는 앱 내 데이터를 제3자에게 제공하거나 개인정보 처리 업무를 위탁하지 않습니다. 사용자가 선택한 공유 대상 앱·서비스의 이후 데이터 처리는 해당 제공자의 방침에 따릅니다. 이는 개발자의 자동 제공 또는 처리 위탁이 아닙니다. 갤러리나 저장 위치에 대한 다른 앱·기기 서비스의 접근 및 사용자가 설정한 동기화도 해당 앱·서비스의 설정과 방침을 확인해 주세요.</p>
+  </section>
+  <section aria-labelledby="deletion">
+    <h2 id="deletion">5. 보관 기간과 삭제 방법</h2>
+    <p>개발자 서버에 보관하는 데이터나 별도의 서버 보관 기간은 없습니다. 기기의 기록과 설정은 사용자가 삭제하거나 앱 데이터를 지울 때까지 기기에 보관됩니다.</p>
+    <ul>
+      <li><strong>개별 기록·사진:</strong> 앱 내 삭제 기능을 이용합니다. 실행취소 가능한 조작은 앱에서 되돌릴 수 있으므로, 앱 전용 데이터 전체를 제거하려면 아래 방법을 이용해 주세요.</li>
+      <li><strong>앱 전용 데이터 전체:</strong> Android 설정에서 TrackManager의 저장공간에 있는 앱 데이터 삭제 기능을 이용하거나 앱을 제거합니다. 앱 제거 시 기기의 앱 전용 데이터베이스·사진·설정이 삭제됩니다.</li>
+      <li><strong>갤러리 사본:</strong> 갤러리 또는 파일 앱에서 <code>Pictures/TrackMaster/</code> 폴더의 사진을 직접 삭제합니다. 해당 앱의 휴지통에 남은 경우 영구 삭제도 진행해 주세요.</li>
+      <li><strong>내보내기·백업·공유 사본:</strong> 사용자가 저장한 xlsx·ZIP·CSV 등과 공유 대상에 전달된 사본은 앱 제거로 삭제되지 않습니다. 각 저장 위치 또는 수신 서비스에서 별도로 삭제해 주세요.</li>
+    </ul>
+    <p>개발자는 기기의 데이터를 대신 조회·수정·삭제할 수 없습니다. 기록 열람과 수정은 앱에서, 삭제는 위 방법으로 직접 할 수 있습니다. 기기 잠금과 파일 공유 대상을 관리하고 필요한 자료는 직접 백업해 주세요.</p>
+  </section>
+  <section aria-labelledby="permissions">
+    <h2 id="permissions">6. 권한과 선택 기능</h2>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="권한 표, 가로로 스크롤 가능">
+      <table>
+        <thead><tr><th scope="col">권한 또는 시스템 기능</th><th scope="col">사용 목적</th><th scope="col">거부하거나 사용하지 않을 때</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>ACCESS_FINE_LOCATION</code> / <code>ACCESS_COARSE_LOCATION</code></th><td>앱 사용 중에만 GPS 등으로 선로 km 위치 입력 보조</td><td>위치를 수동 입력할 수 있습니다. 백그라운드 위치 권한은 사용하지 않습니다.</td></tr>
+          <tr><th scope="row">시스템 카메라 앱 호출</th><td>사용자가 요청한 현장 사진 촬영</td><td>촬영을 생략하거나 사진 선택기를 이용할 수 있습니다. TrackManager는 <code>CAMERA</code> 권한을 요청하지 않습니다.</td></tr>
+          <tr><th scope="row">시스템 사진 선택기</th><td>사용자가 고른 사진만 첨부</td><td>사진 첨부 없이 기록할 수 있습니다. 광범위한 사진·동영상 라이브러리 읽기 권한을 요청하지 않습니다.</td></tr>
+          <tr><th scope="row"><code>WRITE_EXTERNAL_STORAGE</code> — Android 8~9(API 26~28)에서만</th><td><code>Pictures/TrackMaster/</code>에 갤러리 사본 저장</td><td>앱 전용 저장 공간을 이용하고 필요하면 공유 기능을 이용합니다. Android 10 이상에서는 이 권한을 요청하지 않습니다.</td></tr>
+          <tr><th scope="row">시스템 파일 선택기 / 공유 시트</th><td>선택한 CSV 가져오기, 파일 내보내기 및 공유</td><td>해당 기능을 이용하지 않아도 결함 기록 기능을 사용할 수 있습니다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>위치·저장공간 권한은 Android 설정에서 변경할 수 있습니다. 실제 요청 여부는 Android 버전과 사용한 기능에 따라 달라집니다.</p>
+  </section>
+  <section aria-labelledby="children">
+    <h2 id="children">7. 아동의 개인정보</h2>
+    <p>이 앱은 선로 유지보수 현장 작업을 위한 도구이며 아동을 대상으로 개인정보를 수집하거나 계정을 만들도록 요구하지 않습니다. 모든 이용자의 데이터는 위에 설명한 방식으로 기기에서 처리됩니다. 보호자는 아동이 앱을 이용하는 경우 사진·기록의 입력과 공유를 지도하고, 삭제가 필요하면 제5항의 방법을 이용하거나 문의할 수 있습니다.</p>
+  </section>
+  <section aria-labelledby="changes">
+    <h2 id="changes">8. 처리방침 변경과 향후 광고</h2>
+    <p>현재 버전에는 실제 광고와 광고 SDK가 없으며 빈 광고 영역만 있습니다. 출시 후 향후 AdMob 등 광고 SDK를 도입하려는 계획이 있지만, 현재는 연동되어 있지 않습니다. 도입 시 실제 데이터 처리, 제3자 제공·위탁, 권한 및 필요한 동의 사항을 재검토하고, 적용 전에 개인정보 처리방침과 Play 데이터 보안 정보를 개정하여 고지합니다.</p>
+    <p>그 밖에 처리 항목이나 목적 등이 바뀌면 변경 내용과 시행일을 이 페이지 및 앱 내 안내를 통해 알립니다. 법령상 별도 고지나 동의가 필요한 경우 그 절차를 따릅니다.</p>
+  </section>
+  <section aria-labelledby="contact">
+    <h2 id="contact">9. 문의</h2>
+    <p>개인정보 처리, 기기 내 기록 관리 또는 이 방침에 관한 문의는 <strong><a href="mailto:bizstoa1234@gmail.com">bizstoa1234@gmail.com</a></strong>으로 보내 주세요. 문의 시 현장 기록이나 사진 등 불필요한 개인정보를 첨부하지 마세요. 사용자가 이메일로 별도 제공한 정보는 문의 응대에 필요한 범위에서만 이용하며, 앱이 자동으로 전송한 데이터가 아닙니다.</p>
+  </section>
+</main>
+</body>
+</html>
